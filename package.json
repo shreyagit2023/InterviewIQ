@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^1.18.1",
+    "lucide-react": "^1.25.0",
+    "react-dropzone": "^19.1.1",
+    "react-markdown": "^10.1.0"
+  }
+}

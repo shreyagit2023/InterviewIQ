@@ -1,0 +1,141 @@
+:root {
+    --bg: #0a0a0a;
+    --sidebar: #111111;
+    --card: #1a1a1a;
+    --border: #2b2b2b;
+
+    --primary: #8B6B4F;
+    --primary-hover: #A67C52;
+
+    --text: #F5F5F5;
+    --muted: #9d9d9d;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-bottom: 35px;
+}
+
+.logo h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.new-chat {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: var(--primary);
+    color: white;
+
+    border: none;
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.new-chat:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.document-section {
+    margin-top: 35px;
+}
+
+.document-section h4 {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.document-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    padding: 14px;
+    border-radius: 14px;
+
+    margin-bottom: 16px;
+}
+
+.document-card span {
+    color: var(--text);
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.upload-another {
+    width: 100%;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: var(--text);
+    font-size: 14px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.upload-another:hover {
+    background: #1b1b1b;
+    border-color: var(--primary);
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px;
+    border-radius: 12px;
+
+    color: var(--muted);
+    font-size: 15px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.settings:hover {
+    background: #1b1b1b;
+    color: white;
+}

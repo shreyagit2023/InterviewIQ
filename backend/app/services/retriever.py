@@ -1,0 +1,54 @@
+import faiss
+import pickle
+import numpy as np
+
+from app.services.embeddings import generate_embeddings
+
+INDEX_PATH = "app/vector_db/faiss.index"
+METADATA_PATH = "app/vector_db/metadata.pkl"
+
+
+def retrieve(query: str, k: int = 5):
+    """
+    Retrieve top-k most relevant chunks.
+    """
+
+    # Load FAISS index
+    index = faiss.read_index(INDEX_PATH)
+
+    # Load chunk metadata
+    with open(METADATA_PATH, "rb") as f:
+        metadata = pickle.load(f)
+
+    # Convert question into embedding
+    query_embedding = generate_embeddings([query])
+
+    # Search
+    scores, indices = index.search(
+        np.array(query_embedding, dtype=np.float32),
+        k
+    )
+
+    results = []
+
+    for score, idx in zip(scores[0], indices[0]):
+
+        if idx == -1:
+            continue
+
+        if score < 0.55:
+            continue
+
+        chunk = metadata[idx].copy()
+
+        chunk["score"] = float(score)
+
+        print("=" * 70)
+        print(f"Score : {score:.4f}")
+        print(f"Page  : {chunk['page']}")
+        print(f"File  : {chunk['filename']}")
+        print(chunk["text"][:200])
+
+        results.append(chunk)
+
+    return results
