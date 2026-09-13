@@ -1,4 +1,10 @@
-import { Plus, Upload, FileText, Settings } from "lucide-react";
+import {
+  Plus,
+  Upload,
+  FileText,
+  Settings,
+  Video,
+} from "lucide-react";
 import "./SideBar.css";
 
 export default function Sidebar({
@@ -6,6 +12,7 @@ export default function Sidebar({
   uploaded,
   fileName,
   onUploadClick,
+  onInterviewClick,
 }) {
   return (
     <aside className="sidebar">
@@ -23,6 +30,15 @@ export default function Sidebar({
           <Plus size={18} />
           New Chat
         </button>
+        {uploaded && (
+  <button
+    className="ai-interview-button"
+    onClick={onInterviewClick}
+  >
+    <Video size={18} />
+    AI Interview
+  </button>
+)}
 
         {uploaded && (
           <div className="document-section">
